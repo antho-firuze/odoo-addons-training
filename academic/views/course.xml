@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_academic_course_tree" model="ir.ui.view">
+      <field name="name">academic.course.tree</field>
+      <field name="model">academic.course</field>
+      <field name="arch" type="xml">
+        <tree string="Course Tree">
+          <field name="name"/>
+          <field name="description"/>
+          <field name="responsible_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_academic_course_form" model="ir.ui.view">
+        <field name="name">academic.course.form</field>
+        <field name="model">academic.course</field>
+        <field name="arch" type="xml">
+            <form string="Course Form">
+                <sheet>
+                    <div class="oe_title">
+                      <label for="name" class="oe_edit_only" string="Course Name"></label>
+                      <h1>
+                        <field name="name"/>
+                      </h1>
+                    </div>
+                    <group>
+                        <field name="responsible_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <group>
+                                <field name="description" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Sessions">
+                            <group>
+                                <field name="session_ids" nolabel="1">
+                                    <tree string="Sessions">
+                                        <field name="name"/>
+                                        <field name="instructor_id"/>
+                                        <field name="start_date"/>
+                                        <field name="duration"/>
+                                        <field name="seats"/>
+                                        <field name="is_active"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+  </data>
+</odoo>
